@@ -17,3 +17,16 @@ html, body {
   overflow: hidden;
   height: 100%;
 }
+
+.Apple {
+  pointer-events: none;
+}
+
+.canvas {
+    display: flex;
+    flex-direction: row;
+}
+
+.scoreCounter {
+  justify-content: left;
+}
