@@ -31,10 +31,10 @@ class Game extends React.Component {
   }
   
   updateTimer = () => {
+    var tempSecondsRemaining = this.state.secondsRemaining;
+    tempSecondsRemaining -= 1;
+    
     if(!this.state.gameEnded){
-      var tempSecondsRemaining = this.state.secondsRemaining;
-      tempSecondsRemaining -= 1;
-      
       if(tempSecondsRemaining > 0){
         this.setState({
           secondsRemaining: tempSecondsRemaining,
@@ -103,6 +103,10 @@ class Game extends React.Component {
   
   restartGame = () => {
     console.log("restartGame pressed");
+    clearInterval(this.intervalID);
+    this.intervalID = setInterval(this.updateTimer, 1000);
+    console.log(this.intervalID);
+    
     var apples = this.setupApples();
     
     this.setState({
