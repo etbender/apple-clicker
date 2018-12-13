@@ -22,7 +22,8 @@ html, body {
   pointer-events: none;
 }
 
-.canvas {
+
+.game {
     display: flex;
     flex-direction: row;
     height: 100vh;

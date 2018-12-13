@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Canvas from './components/Canvas'
+import Game from './components/Game'
 
 class App extends Component {
   
@@ -19,7 +19,7 @@ class App extends Component {
   
   render() {
     return (
-      <Canvas></Canvas>
+      <Game></Game>
     );
   }
 }

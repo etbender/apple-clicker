@@ -1,12 +1,16 @@
 import React from 'react';
 import Button from './Button';
 import Apple from './Apple';
+import GameOverOverlay from './GameOverOverlay'
 
 const buttonWidth = 120;
 const canvasHeight = 1000;
 const canvasWidth = 600;
+const gameLength = 15;
 
-class Canvas extends React.Component {
+class Game extends React.Component {
+  
+  intervalID = null;
   
   constructor(props){
     super(props);
@@ -16,7 +20,32 @@ class Canvas extends React.Component {
     this.state = {
       appleLocations: apples,
       score: 0,
-      gameEnded: false
+      gameEnded: false,
+      secondsRemaining: gameLength
+    }
+  }
+  
+  componentDidMount() {
+    this.intervalID = setInterval(this.updateTimer, 1000);
+    console.log(this.intervalID);
+  }
+  
+  updateTimer = () => {
+    if(!this.state.gameEnded){
+      var tempSecondsRemaining = this.state.secondsRemaining;
+      tempSecondsRemaining -= 1;
+      
+      if(tempSecondsRemaining > 0){
+        this.setState({
+          secondsRemaining: tempSecondsRemaining,
+        })
+      }
+      else{
+        this.setState({
+          gameEnded: true,
+        })
+        console.log(this.state.secondsRemaining + " seconds remaining");
+      }
     }
   }
   
@@ -70,12 +99,23 @@ class Canvas extends React.Component {
         gameEnded: tempGameEnded
       })
     }
-
+  }
+  
+  restartGame = () => {
+    console.log("restartGame pressed");
+    var apples = this.setupApples();
+    
+    this.setState({
+      appleLocations: apples,
+      score: 0,
+      gameEnded: false,
+      secondsRemaining: gameLength
+    })
   }
   
   render(){
     return(
-        <div className="canvas" id="canvas">
+        <div className="game" id="game">
           <div className="sidebar"></div>
           <svg id="apple-clicker-canvas" viewBox="0 0 600 1000">
             
@@ -94,9 +134,16 @@ class Canvas extends React.Component {
             <Apple yPos={canvasHeight - 2*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[5]*buttonWidth} />
             <Apple yPos={canvasHeight - 1*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[6]*buttonWidth} />
             <Apple yPos={canvasHeight - 0*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[7]*buttonWidth} />
+            
+            { this.state.gameEnded &&
+              <GameOverOverlay onClick={this.restartGame}/>
+            }
           </svg>
+          
+          
           <div className="sidebar">
-            <p id="scoreCounter">{"Score "+this.state.score}</p> <br></br>
+            <p id="scoreCounter">{"Score: "+this.state.score}</p>
+            <p id="timeCounter">{"Time: "+this.state.secondsRemaining +" seconds"}</p>
             { this.state.gameEnded &&
               <h1 id="messageContainer">You Lose</h1>
             }
@@ -106,4 +153,4 @@ class Canvas extends React.Component {
   }
 }
 
-export default Canvas;
+export default Game;
