@@ -120,37 +120,33 @@ class Game extends React.Component {
   render(){
     return(
         <div className="game" id="game">
-          <div className="sidebar"></div>
-          <svg id="apple-clicker-canvas" viewBox="0 0 600 1000">
-            
-            <rect height="100%" stroke="green" strokeWidth="4" fill="grey" id="gameArea"/>
-            <Button yPos={canvasHeight - buttonWidth} xPos={0} onClick={this.handleButtonClick} button_num={0}/>
-            <Button yPos={canvasHeight - buttonWidth} xPos={buttonWidth} onClick={this.handleButtonClick} button_num={1}/>
-            <Button yPos={canvasHeight - buttonWidth} xPos={buttonWidth*2} onClick={this.handleButtonClick} button_num={2}/>
-            <Button yPos={canvasHeight - buttonWidth} xPos={buttonWidth*3} onClick={this.handleButtonClick} button_num={3}/>
-            <Button yPos={canvasHeight - buttonWidth} xPos={buttonWidth*4} onClick={this.handleButtonClick} button_num={4}/>
-            
-            <Apple yPos={canvasHeight - 7*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[0]*buttonWidth} />
-            <Apple yPos={canvasHeight - 6*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[1]*buttonWidth} />
-            <Apple yPos={canvasHeight - 5*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[2]*buttonWidth} />
-            <Apple yPos={canvasHeight - 4*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[3]*buttonWidth} />
-            <Apple yPos={canvasHeight - 3*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[4]*buttonWidth} />
-            <Apple yPos={canvasHeight - 2*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[5]*buttonWidth} />
-            <Apple yPos={canvasHeight - 1*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[6]*buttonWidth} />
-            <Apple yPos={canvasHeight - 0*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[7]*buttonWidth} />
-            
-            { this.state.gameEnded &&
-              <GameOverOverlay onClick={this.restartGame}/>
-            }
-          </svg>
-          
-          
-          <div className="sidebar">
-            <p id="scoreCounter">{"Score: "+this.state.score}</p>
-            <p id="timeCounter">{"Time: "+this.state.secondsRemaining +" seconds"}</p>
-            { this.state.gameEnded &&
-              <h1 id="messageContainer">You Lose</h1>
-            }
+          <div className="game-contents">
+            <div className="topbar">
+              <p id="scoreCounter">{"Score: "+this.state.score}</p>
+              <p id="timeCounter">{"Time: "+this.state.secondsRemaining +" seconds"}</p>
+            </div>
+            <svg id="apple-clicker-canvas" viewBox="0 0 600 1000">
+              
+              <rect height="100%" stroke="green" strokeWidth="4" fill="grey" id="gameArea"/>
+              <Button yPos={canvasHeight - buttonWidth} xPos={0} onClick={this.handleButtonClick} button_num={0}/>
+              <Button yPos={canvasHeight - buttonWidth} xPos={buttonWidth} onClick={this.handleButtonClick} button_num={1}/>
+              <Button yPos={canvasHeight - buttonWidth} xPos={buttonWidth*2} onClick={this.handleButtonClick} button_num={2}/>
+              <Button yPos={canvasHeight - buttonWidth} xPos={buttonWidth*3} onClick={this.handleButtonClick} button_num={3}/>
+              <Button yPos={canvasHeight - buttonWidth} xPos={buttonWidth*4} onClick={this.handleButtonClick} button_num={4}/>
+              
+              <Apple yPos={canvasHeight - 7*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[0]*buttonWidth} />
+              <Apple yPos={canvasHeight - 6*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[1]*buttonWidth} />
+              <Apple yPos={canvasHeight - 5*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[2]*buttonWidth} />
+              <Apple yPos={canvasHeight - 4*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[3]*buttonWidth} />
+              <Apple yPos={canvasHeight - 3*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[4]*buttonWidth} />
+              <Apple yPos={canvasHeight - 2*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[5]*buttonWidth} />
+              <Apple yPos={canvasHeight - 1*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[6]*buttonWidth} />
+              <Apple yPos={canvasHeight - 0*buttonWidth - 0.5*buttonWidth} xPos={0.5*buttonWidth + this.state.appleLocations[7]*buttonWidth} />
+              
+              { this.state.gameEnded &&
+                <GameOverOverlay onClick={this.restartGame}/>
+              }
+            </svg>
           </div>
         </div>
     );
