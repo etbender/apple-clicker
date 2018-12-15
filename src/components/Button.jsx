@@ -11,7 +11,7 @@ class Button extends React.Component {
     const {button_num, xPos, yPos, onClick} = this.props;
     var browserHeight = window.innerHeight;
     return(
-        <rect width="120" height="120" stroke="blue" strokeWidth="4" fill="green" y={yPos} x={xPos} onClick={this.onClick}
+        <rect width="120" height="120" stroke="black" strokeWidth="4" fill="burlywood" y={yPos} x={xPos} onClick={this.onClick}
         button_num={button_num}/>
     );
   }

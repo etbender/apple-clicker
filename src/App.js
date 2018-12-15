@@ -19,7 +19,7 @@ class App extends Component {
   
   render() {
     return (
-      <Game></Game>
+      <Game />
     );
   }
 }

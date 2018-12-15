@@ -50,10 +50,6 @@ html, body {
   height: 5vh;
 }
 
-#scoreCounter{
-  //flex: 1;
-}
-
-#timeCounter{
-  //flex: 1;
+#youDiedText{
+  font: 32px serif;
 }
