@@ -1,15 +1,15 @@
 {
-  "main.css": "/apple-clicker/static/css/main.cb371da9.chunk.css",
-  "main.js": "/apple-clicker/static/js/main.f7a7f1ea.chunk.js",
-  "main.js.map": "/apple-clicker/static/js/main.f7a7f1ea.chunk.js.map",
+  "main.css": "/apple-clicker/static/css/main.461ea9da.chunk.css",
+  "main.js": "/apple-clicker/static/js/main.778709b6.chunk.js",
+  "main.js.map": "/apple-clicker/static/js/main.778709b6.chunk.js.map",
   "static/js/1.c7e0ca36.chunk.js": "/apple-clicker/static/js/1.c7e0ca36.chunk.js",
   "static/js/1.c7e0ca36.chunk.js.map": "/apple-clicker/static/js/1.c7e0ca36.chunk.js.map",
   "runtime~main.js": "/apple-clicker/static/js/runtime~main.73c94010.js",
   "runtime~main.js.map": "/apple-clicker/static/js/runtime~main.73c94010.js.map",
-  "static/css/main.cb371da9.chunk.css.map": "/apple-clicker/static/css/main.cb371da9.chunk.css.map",
+  "static/css/main.461ea9da.chunk.css.map": "/apple-clicker/static/css/main.461ea9da.chunk.css.map",
   "static/media/sky-background.jpg": "/apple-clicker/static/media/sky-background.9751730c.jpg",
   "static/media/apple.png": "/apple-clicker/static/media/apple.1fc1361a.png",
   "index.html": "/apple-clicker/index.html",
-  "precache-manifest.c60ec2a60eedbb6b008e0135c67f22b2.js": "/apple-clicker/precache-manifest.c60ec2a60eedbb6b008e0135c67f22b2.js",
+  "precache-manifest.55825364d4294825f2463901ee1c537b.js": "/apple-clicker/precache-manifest.55825364d4294825f2463901ee1c537b.js",
   "service-worker.js": "/apple-clicker/service-worker.js"
 }
