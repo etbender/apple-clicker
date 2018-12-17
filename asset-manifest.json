@@ -1,7 +1,7 @@
 {
   "main.css": "/apple-clicker/static/css/main.10aa03c6.chunk.css",
-  "main.js": "/apple-clicker/static/js/main.7c2cc477.chunk.js",
-  "main.js.map": "/apple-clicker/static/js/main.7c2cc477.chunk.js.map",
+  "main.js": "/apple-clicker/static/js/main.d3106232.chunk.js",
+  "main.js.map": "/apple-clicker/static/js/main.d3106232.chunk.js.map",
   "static/js/1.9c891a6b.chunk.js": "/apple-clicker/static/js/1.9c891a6b.chunk.js",
   "static/js/1.9c891a6b.chunk.js.map": "/apple-clicker/static/js/1.9c891a6b.chunk.js.map",
   "runtime~main.js": "/apple-clicker/static/js/runtime~main.73c94010.js",
@@ -11,6 +11,6 @@
   "static/media/timer.png": "/apple-clicker/static/media/timer.d25a4846.png",
   "static/media/apple.png": "/apple-clicker/static/media/apple.1fc1361a.png",
   "index.html": "/apple-clicker/index.html",
-  "precache-manifest.9f6407a7f5ad40d2ad8a877780e1d830.js": "/apple-clicker/precache-manifest.9f6407a7f5ad40d2ad8a877780e1d830.js",
+  "precache-manifest.0d4c6563cffefdafdb6f2b1ef4b9acd3.js": "/apple-clicker/precache-manifest.0d4c6563cffefdafdb6f2b1ef4b9acd3.js",
   "service-worker.js": "/apple-clicker/service-worker.js"
 }
