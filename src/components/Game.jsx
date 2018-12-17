@@ -1,3 +1,5 @@
+//deploy: npm run deploy
+
 import React from 'react';
 import Button from './Button';
 import Apple from './Apple';
@@ -5,13 +7,7 @@ import GameOverOverlay from './GameOverOverlay'
 import GameStartOverlay from './GameStartOverlay'
 import backgroundImg from '../assets/sky-background.jpg'
 import timerImg from '../assets/timer.png'
-
-const BUTTON_WIDTH = 120;
-const CANVAS_HEIGHT = 1000;
-const CANVAS_WIDTH = 600;
-const GAME_LENGTH = 15;
-const NUMBER_OF_COLUMNS = 5;
-const NUMBER_OF_ROWS = 8;
+import {CANVAS_HEIGHT, CANVAS_WIDTH, NUMBER_OF_COLUMNS, NUMBER_OF_ROWS, BUTTON_WIDTH, GAME_LENGTH} from '../utils/constants.js'
 
 class Game extends React.Component {
   
@@ -60,7 +56,7 @@ class Game extends React.Component {
   //returns initial array of apples
   setupApples(){
     var appleLocations = [];
-    for(var i = 0; i < 8; i++){
+    for(var i = 0; i < NUMBER_OF_ROWS; i++){
       var randomNumber = Math.floor(Math.random()*5); // random number between 0 and 4
       appleLocations.unshift(randomNumber);
     }
@@ -145,22 +141,18 @@ class Game extends React.Component {
         <div className="game" id="game">
           <meta name="viewport" content="width=device-width,user-scalable=no"/>
           <div className="game-contents">
-            <div className="topbar">
-              <p id="scoreCounter">{"Score: "+this.state.score}</p>
-              <p id="timeCounter">{"Time: "+this.state.secondsRemaining +" seconds"}</p>
-            </div>
             <svg id="apple-clicker-canvas" viewBox={"0 0 "+CANVAS_WIDTH+" "+CANVAS_HEIGHT}>
               
               <image height="100%" xlinkHref={backgroundImg} width={CANVAS_WIDTH}/>
               {this.renderButtons()}
               {this.renderApples()}
-              <text fontSize="32" x="30" y="35" fill="orange">{this.state.score}</text>
-              <image xlinkHref={timerImg} height="3.5%" x="510" y="5"/>
-              <text fontSize="32" x="550" y="35">{this.state.secondsRemaining}</text>
+              <text fontSize="32" fontWeight="bold" x="30" y="35">{this.state.score}</text>
+              <image xlinkHref={timerImg} height="3.5%" width="3.5%" x="560" y="5"/>
+              <text fontSize="32" fontWeight="bold" x="600" y="35">{this.state.secondsRemaining}</text>
               
               { 
                 this.state.gameEnded &&
-                <GameOverOverlay onClick={this.restartGame}/>
+                <GameOverOverlay onClick={this.restartGame} score={this.state.score}/>
               }
               
               {

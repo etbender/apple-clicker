@@ -1,5 +1,6 @@
 import React from 'react';
 import appleImg from "../assets/apple.png"
+import {BUTTON_WIDTH} from '../utils/constants.js'
 
 class Apple extends React.Component {
   
@@ -9,7 +10,7 @@ class Apple extends React.Component {
     const {xPos, yPos} = this.props;
     
     return(
-      <image x={xPos} y={yPos} height="120" width="120" className="Apple" xlinkHref={appleImg}/>
+      <image x={xPos} y={yPos} height={BUTTON_WIDTH} width={BUTTON_WIDTH} className="Apple" xlinkHref={appleImg}/>
     )
   }
   
