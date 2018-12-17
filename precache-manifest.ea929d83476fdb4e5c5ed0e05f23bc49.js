@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/apple-clicker/static/media/timer.d25a4846.png"
   },
   {
-    "revision": "1e24d359c7474aa396af2616b82b351b",
-    "url": "/apple-clicker/static/media/sky-background.1e24d359.jpg"
+    "revision": "bf7984395f8e1ec245713e92d529ce7c",
+    "url": "/apple-clicker/static/media/sky-background.bf798439.jpg"
   },
   {
     "revision": "1fc1361af720afc930b50ef5c85e3981",
@@ -16,19 +16,19 @@ self.__precacheManifest = [
     "url": "/apple-clicker/static/js/runtime~main.73c94010.js"
   },
   {
-    "revision": "544120ef00228ae673e9",
-    "url": "/apple-clicker/static/js/main.544120ef.chunk.js"
+    "revision": "68971625507e22d40536",
+    "url": "/apple-clicker/static/js/main.68971625.chunk.js"
   },
   {
     "revision": "9c891a6b83b741c0e97e",
     "url": "/apple-clicker/static/js/1.9c891a6b.chunk.js"
   },
   {
-    "revision": "544120ef00228ae673e9",
+    "revision": "68971625507e22d40536",
     "url": "/apple-clicker/static/css/main.10aa03c6.chunk.css"
   },
   {
-    "revision": "789e8ebf383f9491c0c7cc335c3582a2",
+    "revision": "2907f2b7e1f23ad9b53211eb43d5e400",
     "url": "/apple-clicker/index.html"
   }
 ];
