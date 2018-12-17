@@ -4,6 +4,7 @@ import Apple from './Apple';
 import GameOverOverlay from './GameOverOverlay'
 import GameStartOverlay from './GameStartOverlay'
 import backgroundImg from '../assets/sky-background.jpg'
+import timerImg from '../assets/timer.png'
 
 const BUTTON_WIDTH = 120;
 const CANVAS_HEIGHT = 1000;
@@ -142,6 +143,7 @@ class Game extends React.Component {
     //const {score, secondsRemaining, appleLocations, gameEnded, gameStarted} = this.state;
     return(
         <div className="game" id="game">
+          <meta name="viewport" content="width=device-width,user-scalable=no"/>
           <div className="game-contents">
             <div className="topbar">
               <p id="scoreCounter">{"Score: "+this.state.score}</p>
@@ -152,6 +154,9 @@ class Game extends React.Component {
               <image height="100%" xlinkHref={backgroundImg} width={CANVAS_WIDTH}/>
               {this.renderButtons()}
               {this.renderApples()}
+              <text fontSize="32" x="30" y="35" fill="orange">{this.state.score}</text>
+              <image xlinkHref={timerImg} height="3.5%" x="510" y="5"/>
+              <text fontSize="32" x="550" y="35">{this.state.secondsRemaining}</text>
               
               { 
                 this.state.gameEnded &&
@@ -164,6 +169,8 @@ class Game extends React.Component {
               }
               
             </svg>
+            <div className="bottombar">
+            </div>
           </div>
         </div>
     );

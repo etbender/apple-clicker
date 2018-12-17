@@ -8,7 +8,7 @@ class GameStartOverlay extends React.Component {
   render(){
     return (
       <>
-        <image height="100%" xlinkHref={backgroundImg} id="startGameOverlay" onClick={this.onClick}/>
+        <image height="100%" xlinkHref={backgroundImg} id="startGameOverlay" onClick={this.props.onClick}/>
         <text fontSize="32" x="150" y="500" id="gameStartText" onClick={this.props.onClick}>Press anywhere to begin!</text>
       </>
     )

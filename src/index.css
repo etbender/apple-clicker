@@ -50,6 +50,10 @@ html, body {
   height: 5vh;
 }
 
+.bottombar{
+  height: 11vh;
+}
+
 #youDiedText{
   font: 32px serif;
 }
