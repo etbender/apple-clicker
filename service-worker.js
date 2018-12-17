@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/apple-clicker/precache-manifest.a9084f037bf48e956c466ab141c5360e.js"
+  "/apple-clicker/precache-manifest.d43591e5a09306d876bff75668d46419.js"
 );
 
 workbox.clientsClaim();
