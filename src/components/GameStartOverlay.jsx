@@ -25,9 +25,9 @@ class GameStartOverlay extends React.Component {
     return (
       <>
         <image height="100%" width="100%" xlinkHref={backgroundImg}/>
-        <image height="7%" width="47%" x="185" y="300" xlinkHref={playEasyButton} onClick={this.props.onEasyClick}/>
-        <image height="7%" width="47%" x="185" y="360" xlinkHref={playCompetitiveButton} onClick={this.props.onCompetitiveClick}/>
-        <image height="7%" width="47%" x="185" y="420" xlinkHref={howToPlayButton} onClick={this.toggleHowToPlay}/>
+        <image height="10%" width="50%" x="175" y="250" xlinkHref={playEasyButton} onClick={this.props.onEasyClick}/>
+        <image height="10%" width="50%" x="175" y="350" xlinkHref={playCompetitiveButton} onClick={this.props.onCompetitiveClick}/>
+        <image height="10%" width="50%" x="175" y="450" xlinkHref={howToPlayButton} onClick={this.toggleHowToPlay}/>
         {
           this.state.howToPlayOpen &&
           <HowToPlayBox/>

@@ -5,11 +5,11 @@ class HowToPlayBox extends React.Component {
   render(){
     return (
         <>
-          <image height="40%" width="60%" xlinkHref={border} x="135" y="450" className="border"/>
-          <text fontSize="24" x="175" y="575">Press each apple at the bottom </text>
-          <text fontSize="24" x="175" y="615">of the screen. You have 15</text>
-          <text fontSize="24" x="175" y="655">seconds to collect as many as</text>
-          <text fontSize="24" x="175" y="705">you can! Be wary of misclicking.</text>
+          <image height="40%" width="60%" xlinkHref={border} x="140" y="550" className="border"/>
+          <text fontSize="24" x="180" y="675">Press each apple at the bottom </text>
+          <text fontSize="24" x="180" y="715">of the screen. You have 15</text>
+          <text fontSize="24" x="180" y="755">seconds to collect as many as</text>
+          <text fontSize="24" x="180" y="805">you can! Be wary of misclicking.</text>
         </>
     )
   }
