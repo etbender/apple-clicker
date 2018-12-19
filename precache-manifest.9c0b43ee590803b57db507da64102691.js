@@ -8,6 +8,10 @@ self.__precacheManifest = [
     "url": "/apple-clicker/static/media/sky-background.bf798439.jpg"
   },
   {
+    "revision": "023f4d20cbb75d8ea84fe37d7e719cd9",
+    "url": "/apple-clicker/static/media/border.023f4d20.png"
+  },
+  {
     "revision": "1fc1361af720afc930b50ef5c85e3981",
     "url": "/apple-clicker/static/media/apple.1fc1361a.png"
   },
@@ -16,19 +20,19 @@ self.__precacheManifest = [
     "url": "/apple-clicker/static/js/runtime~main.73c94010.js"
   },
   {
-    "revision": "d310623247a2553b0e1a",
-    "url": "/apple-clicker/static/js/main.d3106232.chunk.js"
+    "revision": "8f5928c853171ef0b19a",
+    "url": "/apple-clicker/static/js/main.8f5928c8.chunk.js"
   },
   {
-    "revision": "9c891a6b83b741c0e97e",
-    "url": "/apple-clicker/static/js/1.9c891a6b.chunk.js"
+    "revision": "bba4a0b11a23c11cdd04",
+    "url": "/apple-clicker/static/js/1.bba4a0b1.chunk.js"
   },
   {
-    "revision": "d310623247a2553b0e1a",
-    "url": "/apple-clicker/static/css/main.10aa03c6.chunk.css"
+    "revision": "8f5928c853171ef0b19a",
+    "url": "/apple-clicker/static/css/main.91a7e773.chunk.css"
   },
   {
-    "revision": "64147e83a3778bf8d392c54710b73bdb",
+    "revision": "0c1a655aa59028e102532d34ddff4453",
     "url": "/apple-clicker/index.html"
   }
 ];
