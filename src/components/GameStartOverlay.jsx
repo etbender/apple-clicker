@@ -1,7 +1,9 @@
 import React from 'react';
+import HowToPlayBox from './HowToPlayBox'
 import backgroundImg from '../assets/sky-background.jpg'
 import howToPlayButton from '../assets/button_how-to-play.png'
-import HowToPlayBox from './HowToPlayBox'
+import playCompetitiveButton from '../assets/button_play-competitive.png'
+import playEasyButton from '../assets/button_play-easy.png'
 
 class GameStartOverlay extends React.Component {
   
@@ -22,9 +24,10 @@ class GameStartOverlay extends React.Component {
   render(){
     return (
       <>
-        <image height="100%" width="100%" xlinkHref={backgroundImg} id="startGameOverlay" onClick={this.props.onClick}/>
-        <text fontSize="32" x="175" y="400" id="gameStartText" onClick={this.props.onClick}>Press anywhere to begin!</text>
-        <image height="5%" width="19%" x="280" y="450" xlinkHref={howToPlayButton} onClick={this.toggleHowToPlay}/>
+        <image height="100%" width="100%" xlinkHref={backgroundImg}/>
+        <image height="7%" width="47%" x="185" y="300" xlinkHref={playEasyButton} onClick={this.props.onEasyClick}/>
+        <image height="7%" width="47%" x="185" y="360" xlinkHref={playCompetitiveButton} onClick={this.props.onCompetitiveClick}/>
+        <image height="7%" width="47%" x="185" y="420" xlinkHref={howToPlayButton} onClick={this.toggleHowToPlay}/>
         {
           this.state.howToPlayOpen &&
           <HowToPlayBox/>

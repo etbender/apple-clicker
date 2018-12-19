@@ -1,5 +1,4 @@
 import React from 'react';
-import {BUTTON_WIDTH} from '../utils/constants.js'
 
 class Button extends React.Component {
   
@@ -11,9 +10,9 @@ class Button extends React.Component {
 
  
   render(){
-    const {xPos, yPos} = this.props;
+    const {xPos, yPos, buttonWidth} = this.props;
     return(
-        <rect width={BUTTON_WIDTH} height={BUTTON_WIDTH} stroke="black" strokeWidth="4" fill="burlywood" y={yPos} x={xPos} onTouchStart={this.onClick} onTouchEnd={e => e.preventDefault()} onClick={this.onClick}/>
+        <rect width={buttonWidth} height={buttonWidth} stroke="black" strokeWidth="4" fill="burlywood" y={yPos} x={xPos} onTouchStart={this.onClick} onTouchEnd={e => e.preventDefault()} onClick={this.onClick}/>
     );
   }
 }

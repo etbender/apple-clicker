@@ -5,7 +5,7 @@ class GameOverOverlay extends React.Component {
   render(){
     return (
       <>
-        <rect height="100%" width="100%" stroke="black" strokeWidth="4" fill="black" id="resetGameOverlay" opacity="0.85"/>
+        <rect height="100%" width="100%" stroke="black" strokeWidth="4" fill="black" opacity="0.85"/>
         {
           this.props.misclicked &&
           <>
