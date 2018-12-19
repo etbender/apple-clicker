@@ -22,6 +22,14 @@ html, body {
   pointer-events: none;
 }
 
+.border {
+  pointer-events: none;
+}
+
+.bottombar{
+  height: 11vh;
+}
+
 
 .game {
     display: flex;
@@ -40,18 +48,6 @@ html, body {
 
 #apple-clicker-canvas {
   height: 95vh;
-}
-
-.topbar{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  height: 5vh;
-}
-
-.bottombar{
-  height: 11vh;
 }
 
 #youDiedText{

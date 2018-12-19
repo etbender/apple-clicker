@@ -24,6 +24,7 @@ class Game extends React.Component {
       gameEnded: false,
       secondsRemaining: GAME_LENGTH,
       gameStarted: false,
+      misclicked: false,
     }
   }
   
@@ -57,7 +58,7 @@ class Game extends React.Component {
   setupApples(){
     var appleLocations = [];
     for(var i = 0; i < NUMBER_OF_ROWS; i++){
-      var randomNumber = Math.floor(Math.random()*5); // random number between 0 and 4
+      var randomNumber = Math.floor(Math.random()*NUMBER_OF_COLUMNS);
       appleLocations.unshift(randomNumber);
     }
     return appleLocations;
@@ -65,7 +66,7 @@ class Game extends React.Component {
   
   //adds one apple to argument
   generateApple(apples){
-    var randomNumber = Math.floor(Math.random()*5); // random number between 0 and 4
+    var randomNumber = Math.floor(Math.random()*NUMBER_OF_COLUMNS);
     apples.unshift(randomNumber);
     return apples;
   }
@@ -78,7 +79,6 @@ class Game extends React.Component {
     
     var tempAppleLocations = this.state.appleLocations.slice();
     var tempScore = this.state.score;
-    var tempGameEnded = this.state.gameEnded;
     
     
     var appleLocation = tempAppleLocations.pop();
@@ -97,9 +97,9 @@ class Game extends React.Component {
     
     //user pressed wrong button
     else{
-      tempGameEnded = true;
       this.setState({
-        gameEnded: tempGameEnded
+        gameEnded: true,
+        misclicked: true,
       })
     }
   }
@@ -116,6 +116,7 @@ class Game extends React.Component {
       gameEnded: false,
       secondsRemaining: GAME_LENGTH,
       gameStarted: true,
+      misclicked: false,
     })
   }
   
@@ -144,7 +145,10 @@ class Game extends React.Component {
             <svg id="apple-clicker-canvas" viewBox={"0 0 "+CANVAS_WIDTH+" "+CANVAS_HEIGHT}>
               
               <image height="100%" xlinkHref={backgroundImg} width={CANVAS_WIDTH}/>
-              {this.renderButtons()}
+              {
+                this.state.gameStarted &&
+                this.renderButtons()
+              }
               {this.renderApples()}
               <text fontSize="32" fontWeight="bold" x="30" y="35">{this.state.score}</text>
               <image xlinkHref={timerImg} height="3.5%" width="3.5%" x="560" y="5"/>
@@ -152,7 +156,7 @@ class Game extends React.Component {
               
               { 
                 this.state.gameEnded &&
-                <GameOverOverlay onClick={this.restartGame} score={this.state.score}/>
+                <GameOverOverlay onClick={this.restartGame} score={this.state.score} misclicked={this.state.misclicked}/>
               }
               
               {
