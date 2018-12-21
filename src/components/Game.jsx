@@ -5,7 +5,20 @@ import GameOverOverlay from './GameOverOverlay'
 import GameStartOverlay from './GameStartOverlay'
 import backgroundImg from '../assets/sky-background.jpg'
 import timerImg from '../assets/timer.png'
-import {CANVAS_HEIGHT, CANVAS_WIDTH, COMPETITIVE_NUMBER_OF_COLUMNS, EASY_NUMBER_OF_COLUMNS, NUMBER_OF_ROWS, GAME_LENGTH} from '../utils/constants.js'
+
+const CANVAS_HEIGHT = 1000;
+const CANVAS_WIDTH = 700;
+const NUMBER_OF_ROWS = 7;
+const COMPETITIVE_NUMBER_OF_COLUMNS = 5;
+const EASY_NUMBER_OF_COLUMNS = 4;
+const GAME_LENGTH = 15;
+
+const INITIAL_GAME_STATE = {
+  score: 0,
+  gameEnded: false,
+  misclicked: false,
+  secondsRemaining: GAME_LENGTH
+}
 
 class Game extends React.Component {
   
@@ -14,16 +27,13 @@ class Game extends React.Component {
   constructor(props){
     super(props);
     
-    var apples = this.setupApples(COMPETITIVE_NUMBER_OF_COLUMNS);
+    const apples = this.setupApples(COMPETITIVE_NUMBER_OF_COLUMNS);
     
     this.state = {
+      ...INITIAL_GAME_STATE,
       appleLocations: apples,
-      score: 0,
-      gameEnded: false,
-      secondsRemaining: GAME_LENGTH,
       gameStarted: false,
-      misclicked: false,
-      numberOfColumns: COMPETITIVE_NUMBER_OF_COLUMNS,
+      numberOfColumns: COMPETITIVE_NUMBER_OF_COLUMNS
     }
   }
   
@@ -33,38 +43,22 @@ class Game extends React.Component {
   
   
   updateTimer = () => {
-    var tempSecondsRemaining = this.state.secondsRemaining -1;
-    
-    //TODO: 
+    const tempSecondsRemaining = this.state.secondsRemaining -1;
+
     if(!this.state.gameEnded){
-      if(tempSecondsRemaining > 0){
-        this.setState({
-          secondsRemaining: tempSecondsRemaining,
-        })
-      }
-      else{
-        this.setState({
-          gameEnded: true,
-          secondsRemaining: tempSecondsRemaining
-        })
-        console.log(this.state.secondsRemaining + " seconds remaining");
-      }
+      this.setState({
+        secondsRemaining: (tempSecondsRemaining >= 0) ? tempSecondsRemaining : 0,
+        gameEnded: (tempSecondsRemaining > 0) ? this.state.gamEnded : true
+      })
     }
-    /*
-    this.setState({
-      secondsRemaining: tempSecondsRemaining,
-      gamEnded: !this.state.gamEnded && (tempSecondsRemaining > 0) ? this.state.gamEnded : true
-    })
-    */
-    
   }
   
   
   //returns initial array of apples
   setupApples(numberOfColumns){
-    var appleLocations = [];
-    for(var i = 0; i < NUMBER_OF_ROWS; i++){
-      var randomNumber = Math.floor(Math.random()*numberOfColumns);
+    const appleLocations = [];
+    for(let i = 0; i < NUMBER_OF_ROWS; i++){
+      const randomNumber = Math.floor(Math.random()*numberOfColumns);
       appleLocations.unshift(randomNumber);
     }
     return appleLocations;
@@ -72,7 +66,7 @@ class Game extends React.Component {
   
   //adds one apple to argument
   generateApple = (apples) => {
-    var randomNumber = Math.floor(Math.random()*this.state.numberOfColumns);
+    const randomNumber = Math.floor(Math.random()*this.state.numberOfColumns);
     apples.unshift(randomNumber);
     return apples;
   }
@@ -83,11 +77,11 @@ class Game extends React.Component {
       return;
     }
     
-    var tempAppleLocations = this.state.appleLocations.slice();
-    var tempScore = this.state.score;
+    let tempAppleLocations = this.state.appleLocations.slice();
+    let tempScore = this.state.score;
     
     
-    var appleLocation = tempAppleLocations.pop();
+    const appleLocation = tempAppleLocations.pop();
     
     
     //user pressed right button
@@ -100,7 +94,6 @@ class Game extends React.Component {
         score: tempScore,
       })
     }
-    
     //user pressed wrong button
     else{
       this.setState({
@@ -114,11 +107,8 @@ class Game extends React.Component {
     clearInterval(this.intervalID);
     
     this.setState({
-      score: 0,
-      gameEnded: false,
-      gameStarted: false,
-      misclicked: false,
-      numberOfColumns: COMPETITIVE_NUMBER_OF_COLUMNS
+      ...INITIAL_GAME_STATE,
+      gameStarted: false
     })
   }
   
@@ -128,15 +118,12 @@ class Game extends React.Component {
     clearInterval(this.intervalID);
     this.intervalID = setInterval(this.updateTimer, 1000);
     
-    var apples = this.setupApples(EASY_NUMBER_OF_COLUMNS);
+    const apples = this.setupApples(EASY_NUMBER_OF_COLUMNS);
     
     this.setState({
+      ...INITIAL_GAME_STATE,
       appleLocations: apples,
-      score: 0,
-      gameEnded: false,
-      secondsRemaining: GAME_LENGTH,
       gameStarted: true,
-      misclicked: false,
       numberOfColumns: EASY_NUMBER_OF_COLUMNS
     })
   }
@@ -145,30 +132,19 @@ class Game extends React.Component {
     clearInterval(this.intervalID);
     this.intervalID = setInterval(this.updateTimer, 1000);
     
-    var apples = this.setupApples(COMPETITIVE_NUMBER_OF_COLUMNS);
+    const apples = this.setupApples(COMPETITIVE_NUMBER_OF_COLUMNS);
     
     this.setState({
+      ...INITIAL_GAME_STATE,
       appleLocations: apples,
-      score: 0,
-      gameEnded: false,
-      secondsRemaining: GAME_LENGTH,
       gameStarted: true,
-      misclicked: false,
       numberOfColumns: COMPETITIVE_NUMBER_OF_COLUMNS
     })
-    
-    //TODO
-    /*
-    this.setState({
-      ...initialGameState,
-      numberOfColumns: COMPETITIVE_NUMBER_OF_COLUMNS
-    })
-    */
   }
   
   renderButtons(){
     const buttons = [];
-    var buttonWidth = CANVAS_WIDTH / this.state.numberOfColumns;
+    const buttonWidth = CANVAS_WIDTH / this.state.numberOfColumns;
     for(let i = 0; i < this.state.numberOfColumns; i++){
       buttons.push(<Button yPos={CANVAS_HEIGHT - buttonWidth} xPos={i*buttonWidth} onClick={this.handleButtonClick} buttonWidth={buttonWidth} buttonNum={i} key={i}/>);
     }
@@ -177,7 +153,7 @@ class Game extends React.Component {
   
   renderApples(){
     const apples = [];
-    var buttonWidth = CANVAS_WIDTH / this.state.numberOfColumns;
+    const buttonWidth = CANVAS_WIDTH / this.state.numberOfColumns;
     for(let i = 0; i < NUMBER_OF_ROWS; i++){
       apples.push(<Apple yPos={CANVAS_HEIGHT - (NUMBER_OF_ROWS - i)*buttonWidth} xPos={this.state.appleLocations[i]*buttonWidth} buttonWidth={buttonWidth} key={i}/>);
     }

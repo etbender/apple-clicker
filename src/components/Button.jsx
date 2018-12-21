@@ -5,7 +5,6 @@ class Button extends React.Component {
   
   onClick = (e) => {
     e.preventDefault();
-    console.log(e.nativeEvent.type);
     this.props.onClick(this.props.buttonNum);
   };
 
