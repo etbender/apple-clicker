@@ -1,5 +1,3 @@
-//deploy: npm run deploy
-
 import React from 'react';
 import Button from './Button';
 import Apple from './Apple';
@@ -35,9 +33,9 @@ class Game extends React.Component {
   
   
   updateTimer = () => {
-    var tempSecondsRemaining = this.state.secondsRemaining;
-    tempSecondsRemaining -= 1;
+    var tempSecondsRemaining = this.state.secondsRemaining -1;
     
+    //TODO: 
     if(!this.state.gameEnded){
       if(tempSecondsRemaining > 0){
         this.setState({
@@ -52,6 +50,13 @@ class Game extends React.Component {
         console.log(this.state.secondsRemaining + " seconds remaining");
       }
     }
+    /*
+    this.setState({
+      secondsRemaining: tempSecondsRemaining,
+      gamEnded: !this.state.gamEnded && (tempSecondsRemaining > 0) ? this.state.gamEnded : true
+    })
+    */
+    
   }
   
   
@@ -151,6 +156,14 @@ class Game extends React.Component {
       misclicked: false,
       numberOfColumns: COMPETITIVE_NUMBER_OF_COLUMNS
     })
+    
+    //TODO
+    /*
+    this.setState({
+      ...initialGameState,
+      numberOfColumns: COMPETITIVE_NUMBER_OF_COLUMNS
+    })
+    */
   }
   
   renderButtons(){
@@ -172,7 +185,7 @@ class Game extends React.Component {
   }
   
   render(){
-    //const {score, secondsRemaining, appleLocations, gameEnded, gameStarted} = this.state;
+    const {score, secondsRemaining, gameEnded, gameStarted, misclicked} = this.state;
     return(
         <div className="game" id="game">
           <meta name="viewport" content="width=device-width,user-scalable=no"/>
@@ -181,21 +194,21 @@ class Game extends React.Component {
               
               <image height="100%" xlinkHref={backgroundImg} width={CANVAS_WIDTH}/>
               {
-                this.state.gameStarted &&
+                gameStarted &&
                 this.renderButtons()
               }
               {this.renderApples()}
-              <text fontSize="32" fontWeight="bold" x="30" y="35">{this.state.score}</text>
+              <text fontSize="32" fontWeight="bold" x="30" y="35">{score}</text>
               <image xlinkHref={timerImg} height="3.5%" width="3.5%" x="560" y="5"/>
-              <text fontSize="32" fontWeight="bold" x="600" y="35">{this.state.secondsRemaining}</text>
+              <text fontSize="32" fontWeight="bold" x="600" y="35">{secondsRemaining}</text>
               
               { 
-                this.state.gameEnded &&
-                <GameOverOverlay onClick={this.resetGame} score={this.state.score} misclicked={this.state.misclicked}/>
+                gameEnded &&
+                <GameOverOverlay onClick={this.resetGame} score={score} misclicked={misclicked}/>
               }
               
               {
-                !this.state.gameStarted &&
+                !gameStarted &&
                 <GameStartOverlay onEasyClick={this.startEasyGame} onCompetitiveClick={this.startCompetitiveGame}/>
               }
               

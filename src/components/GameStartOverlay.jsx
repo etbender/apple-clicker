@@ -22,11 +22,12 @@ class GameStartOverlay extends React.Component {
   }
   
   render(){
+    const {onEasyClick, onCompetitiveClick} = this.props;
     return (
       <>
         <image height="100%" width="100%" xlinkHref={backgroundImg}/>
-        <image height="10%" width="50%" x="175" y="250" xlinkHref={playEasyButton} onClick={this.props.onEasyClick}/>
-        <image height="10%" width="50%" x="175" y="350" xlinkHref={playCompetitiveButton} onClick={this.props.onCompetitiveClick}/>
+        <image height="10%" width="50%" x="175" y="250" xlinkHref={playEasyButton} onClick={onEasyClick}/>
+        <image height="10%" width="50%" x="175" y="350" xlinkHref={playCompetitiveButton} onClick={onCompetitiveClick}/>
         <image height="10%" width="50%" x="175" y="450" xlinkHref={howToPlayButton} onClick={this.toggleHowToPlay}/>
         {
           this.state.howToPlayOpen &&
