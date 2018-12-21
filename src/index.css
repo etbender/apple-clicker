@@ -53,6 +53,7 @@ html, body {
 
 #apple-clicker-canvas {
   height: 95vh;
+  width: 100vw;
 }
 
 #youDiedText{
