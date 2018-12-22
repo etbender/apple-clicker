@@ -20,19 +20,19 @@ self.__precacheManifest = [
     "url": "/apple-clicker/static/js/runtime~main.73c94010.js"
   },
   {
-    "revision": "3747cd22f0dc6d9f7ce0",
-    "url": "/apple-clicker/static/js/main.3747cd22.chunk.js"
+    "revision": "7bafc6f47b9cf1c60925",
+    "url": "/apple-clicker/static/js/main.7bafc6f4.chunk.js"
   },
   {
     "revision": "fa170bbd85df37306616",
     "url": "/apple-clicker/static/js/1.fa170bbd.chunk.js"
   },
   {
-    "revision": "3747cd22f0dc6d9f7ce0",
+    "revision": "7bafc6f47b9cf1c60925",
     "url": "/apple-clicker/static/css/main.f4ca1b23.chunk.css"
   },
   {
-    "revision": "db4ca94a31e3f554ef4d9d23bc6a9f4a",
+    "revision": "ff7001fa39722fe7101e21c566ceacb0",
     "url": "/apple-clicker/index.html"
   }
 ];
