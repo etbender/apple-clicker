@@ -166,7 +166,7 @@ class Game extends React.Component {
         <div className="game" id="game">
           <meta name="viewport" content="width=device-width,user-scalable=no"/>
           <div className="game-contents">
-            <svg id="apple-clicker-canvas" viewBox={"0 0 "+CANVAS_WIDTH+" "+CANVAS_HEIGHT}>
+            <svg preserveAspectRatio="xMidYMin" id="apple-clicker-canvas" viewBox={"0 0 "+CANVAS_WIDTH+" "+CANVAS_HEIGHT}>
               
               <image height="100%" xlinkHref={backgroundImg} width={CANVAS_WIDTH}/>
               {
